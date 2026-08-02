@@ -155,7 +155,7 @@
       </div>
 
       <!-- Filters & Controls Bar -->
-      <div class="bg-white p-5 rounded-2xl border border-sky-200 shadow-sm grid grid-cols-1 md:grid-cols-3 gap-4">
+      <div class="bg-white p-5 rounded-2xl border border-sky-200 shadow-sm grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
         <!-- Sun Exposure -->
         <div>
           <label class="text-xs font-semibold text-slate-700 block mb-1.5">Sun Light</label>
@@ -178,10 +178,23 @@
           </select>
         </div>
 
+        <!-- Plant Layer / Habit Filter -->
+        <div>
+          <label class="text-xs font-semibold text-slate-700 block mb-1.5">Plant Type / Layer</label>
+          <select id="filter-layer" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-800 focus:outline-none focus:border-amber-500 focus:bg-white">
+            <option value="all">🌱 All Plant Types</option>
+            <option value="shrubs_vines">🌿 Shrubs &amp; Vines</option>
+            <option value="Anchor">⚓ Anchor Perennials</option>
+            <option value="Filler">🌸 Fillers &amp; Mints</option>
+            <option value="Groundcover">🍃 Groundcovers</option>
+            <option value="Background">🌾 Grasses &amp; Tall</option>
+          </select>
+        </div>
+
         <!-- Search Input -->
         <div>
           <label class="text-xs font-semibold text-slate-700 block mb-1.5">Search Species</label>
-          <input id="filter-search" type="text" placeholder="Search by common or botanical name..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-800 focus:outline-none focus:border-amber-500 focus:bg-white placeholder-slate-400" />
+          <input id="filter-search" type="text" placeholder="Search species..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-800 focus:outline-none focus:border-amber-500 focus:bg-white placeholder-slate-400" />
         </div>
       </div>
 
@@ -299,7 +312,7 @@
 
   <!-- APPLICATION LOGIC & DATASET -->
   <script>
-    // 19 Maryland Native Plant Dataset
+    // Expanded Maryland Native Plant Dataset (26 Species)
     const plants = [
       {
         id: "cardinal-flower",
@@ -311,8 +324,20 @@
         layer: "Anchor",
         pathways: ["hummingbirds", "mix"],
         deerResistant: true,
-        ecologicalValue: "High-octane nectar source for Ruby-throated Hummingbirds and Swallowtails.",
+        ecologicalValue: "High-octane red nectar tube for Ruby-throated Hummingbirds and Swallowtails.",
         hummingbirdNote: "Hummingbirds also hunt small soft-bodied insects around these blooms for nestling protein."
+      },
+      {
+        id: "great-blue-lobelia",
+        commonName: "Great Blue Lobelia",
+        botanicalName: "Lobelia siphilitica",
+        sun: ["full_sun", "partial_shade", "full_shade"],
+        moisture: ["average", "wet"],
+        bloomSeason: ["late_summer", "fall"],
+        layer: "Anchor",
+        pathways: ["pollinators", "hummingbirds", "mix"],
+        deerResistant: true,
+        ecologicalValue: "Vibrant blue spikes; excellent companion to Cardinal Flower heavily visited by native bumblebees."
       },
       {
         id: "woodland-pinkroot",
@@ -339,8 +364,20 @@
         ecologicalValue: "Non-invasive native vine; critical spring nectar hub and Spring Azure butterfly host."
       },
       {
+        id: "spicebush",
+        commonName: "Northern Spicebush",
+        botanicalName: "Lindera benzoin",
+        sun: ["partial_shade", "full_shade"],
+        moisture: ["average", "wet"],
+        bloomSeason: ["spring"],
+        layer: "Shrub",
+        pathways: ["butterflies", "pollinators", "mix"],
+        deerResistant: true,
+        ecologicalValue: "Aromatic native shrub; early spring yellow blooms for bees & primary host plant for Spicebush Swallowtail caterpillars."
+      },
+      {
         id: "wild-bergamot",
-        commonName: "Wild Bergamot",
+        commonName: "Wild Bergamot (Bee Balm)",
         botanicalName: "Monarda fistulosa",
         sun: ["full_sun", "partial_shade"],
         moisture: ["dry", "average"],
@@ -348,7 +385,19 @@
         layer: "Filler",
         pathways: ["hummingbirds", "pollinators", "mix"],
         deerResistant: true,
-        ecologicalValue: "Visited heavily by hummingbirds, clearwing moths, and specialist native bees."
+        ecologicalValue: "Lavender blooms visited heavily by hummingbirds, clearwing moths, and specialist native bees."
+      },
+      {
+        id: "scarlet-bee-balm",
+        commonName: "Scarlet Bee Balm / Oswego Tea",
+        botanicalName: "Monarda didyma",
+        sun: ["full_sun", "partial_shade"],
+        moisture: ["average", "wet"],
+        bloomSeason: ["summer"],
+        layer: "Anchor",
+        pathways: ["hummingbirds", "pollinators", "mix"],
+        deerResistant: true,
+        ecologicalValue: "Fiery red tubular flowers high in nectar volume; a top-tier hummingbird attractant for wet or moist beds."
       },
       {
         id: "clustered-mountain-mint",
@@ -362,6 +411,68 @@
         deerResistant: true,
         spreaderWarning: "Spreads via rhizomes; excellent natural weed suppressor.",
         ecologicalValue: "Supports dozens of native bee species, beneficial wasps, and hoverflies."
+      },
+      {
+        id: "narrowleaf-mountain-mint",
+        commonName: "Narrowleaf Mountain Mint",
+        botanicalName: "Pycnanthemum tenuifolium",
+        sun: ["full_sun", "partial_shade"],
+        moisture: ["dry", "average"],
+        bloomSeason: ["summer"],
+        layer: "Filler",
+        pathways: ["pollinators", "mix"],
+        deerResistant: true,
+        ecologicalValue: "Fine needle-like foliage with dense white flower clusters; top-ranked pollinator attractor in MD trial gardens."
+      },
+      {
+        id: "yellow-giant-hyssop",
+        commonName: "Yellow Giant Hyssop",
+        botanicalName: "Agastache nepetoides",
+        sun: ["full_sun", "partial_shade"],
+        moisture: ["dry", "average"],
+        bloomSeason: ["summer", "fall"],
+        layer: "Background",
+        pathways: ["pollinators", "hummingbirds", "mix"],
+        deerResistant: true,
+        ecologicalValue: "Tall Maryland native mint-family giant providing continuous summer bloom spikes for native bumblebees."
+      },
+      {
+        id: "butterfly-weed",
+        commonName: "Butterfly Weed (Milkweed)",
+        botanicalName: "Asclepias tuberosa",
+        sun: ["full_sun"],
+        moisture: ["dry", "average"],
+        bloomSeason: ["summer"],
+        layer: "Filler",
+        pathways: ["butterflies", "mix"],
+        deerResistant: true,
+        cautionaryNote: "⚠️ NOT Butterfly Bush: Avoid invasive Butterfly Bush (Buddleja davidii) which offers zero caterpillar host value. Native Butterfly Weed provides rich nectar AND vital Monarch host habitat.",
+        ecologicalValue: "Dry-site native Milkweed; primary host plant for Monarch butterfly caterpillars."
+      },
+      {
+        id: "swamp-milkweed",
+        commonName: "Swamp Milkweed",
+        botanicalName: "Asclepias incarnata",
+        sun: ["full_sun", "partial_shade"],
+        moisture: ["average", "wet"],
+        bloomSeason: ["summer"],
+        layer: "Anchor",
+        pathways: ["butterflies", "pollinators", "mix"],
+        deerResistant: true,
+        ecologicalValue: "Moisture-loving native Milkweed with fragrant pink blooms; essential Monarch caterpillar host."
+      },
+      {
+        id: "common-milkweed",
+        commonName: "Common Milkweed",
+        botanicalName: "Asclepias syriaca",
+        sun: ["full_sun"],
+        moisture: ["dry", "average"],
+        bloomSeason: ["summer"],
+        layer: "Background",
+        pathways: ["butterflies", "pollinators", "mix"],
+        deerResistant: true,
+        spreaderWarning: "Spreads freely via underground rhizomes; ideal for wilder meadow borders or large beds.",
+        ecologicalValue: "Highly fragrant, high-nectar powerhouse and crucial Monarch butterfly host."
       },
       {
         id: "showy-goldenrod",
@@ -386,19 +497,6 @@
         pathways: ["pollinators", "mix"],
         deerResistant: true,
         ecologicalValue: "Essential early spring forage for native mining bees and specialist pollinators."
-      },
-      {
-        id: "butterfly-weed",
-        commonName: "Butterfly Weed",
-        botanicalName: "Asclepias tuberosa",
-        sun: ["full_sun"],
-        moisture: ["dry", "average"],
-        bloomSeason: ["summer"],
-        layer: "Filler",
-        pathways: ["butterflies", "mix"],
-        deerResistant: true,
-        cautionaryNote: "⚠️ NOT Butterfly Bush: Avoid invasive Butterfly Bush (Buddleja davidii) which offers zero caterpillar host value. Native Butterfly Weed provides rich nectar AND vital Monarch host habitat.",
-        ecologicalValue: "Primary host plant for Monarch butterfly caterpillars."
       },
       {
         id: "joe-pye-weed",
@@ -480,10 +578,10 @@
         sun: ["full_sun", "partial_shade"],
         moisture: ["dry", "average"],
         bloomSeason: ["spring"],
-        layer: "Groundcover",
+        layer: "Shrub",
         pathways: ["pollinators", "mix"],
         deerResistant: true,
-        ecologicalValue: "Tough native woody groundcover providing spring bloom forage and red fall foliage."
+        ecologicalValue: "Tough native woody groundcover/shrub providing spring bloom forage and red fall foliage."
       },
       {
         id: "pennsylvania-sedge",
@@ -554,6 +652,7 @@
     let currentPathway = 'pollinators';
     let currentSun = 'all';
     let currentMoisture = 'all';
+    let currentLayer = 'all';
     let searchQuery = '';
     let savedPlan = JSON.parse(localStorage.getItem('md_yard_plan') || '[]');
 
@@ -593,6 +692,11 @@
 
     document.getElementById('filter-moisture').addEventListener('change', (e) => {
       currentMoisture = e.target.value;
+      render();
+    });
+
+    document.getElementById('filter-layer').addEventListener('change', (e) => {
+      currentLayer = e.target.value;
       render();
     });
 
@@ -654,11 +758,19 @@
         const matchesPathway = currentPathway === 'mix' || p.pathways.includes(currentPathway);
         const matchesSun = currentSun === 'all' || p.sun.includes(currentSun);
         const matchesMoisture = currentMoisture === 'all' || p.moisture.includes(currentMoisture);
+        
+        let matchesLayer = true;
+        if (currentLayer === 'shrubs_vines') {
+          matchesLayer = p.layer === 'Shrub' || p.layer === 'Vine';
+        } else if (currentLayer !== 'all') {
+          matchesLayer = p.layer === currentLayer;
+        }
+
         const matchesSearch = !searchQuery || 
           p.commonName.toLowerCase().includes(searchQuery) || 
           p.botanicalName.toLowerCase().includes(searchQuery);
 
-        return matchesPathway && matchesSun && matchesMoisture && matchesSearch;
+        return matchesPathway && matchesSun && matchesMoisture && matchesLayer && matchesSearch;
       });
 
       document.getElementById('match-count-badge').textContent = `${filtered.length} Matching Species`;
@@ -691,7 +803,11 @@
                           <div class="font-bold text-slate-900 text-sm">${p.commonName}</div>
                           <div class="text-xs text-slate-500 italic">${p.botanicalName}</div>
                         </div>
-                        <span class="text-[10px] uppercase font-bold tracking-wider bg-amber-100 text-amber-900 border border-amber-300 px-2 py-0.5 rounded">
+                        <span class="text-[10px] uppercase font-bold tracking-wider ${
+                          p.layer === 'Shrub' || p.layer === 'Vine'
+                            ? 'bg-emerald-100 text-emerald-900 border border-emerald-300'
+                            : 'bg-amber-100 text-amber-900 border border-amber-300'
+                        } px-2 py-0.5 rounded">
                           ${p.layer}
                         </span>
                       </div>

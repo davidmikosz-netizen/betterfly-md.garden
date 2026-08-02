@@ -1,238 +1,771 @@
-<!-- Header Section with "Better Fly Maryland" Graphic -->
-<header class="flex flex-col items-center text-center border-b border-slate-200 pb-8 relative">
-  
-  <!-- Better Fly Graphic & Badge -->
-  <div class="mb-4 flex flex-col items-center">
-    <!-- SVG Graphic: Playful Butterfly with MD Flag Wings -->
-    <div class="pulse-glow relative transition transform hover:scale-105 duration-300 cursor-pointer">
-      <svg width="220" height="130" viewBox="0 0 220 130" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <!-- Left Wing - Black & Gold Crossland Motif -->
-        <path d="M 105 60 C 60 10 10 20 10 60 C 10 95 65 110 105 75 Z" fill="#f59e0b" stroke="#000" stroke-width="2"/>
-        <path d="M 30 30 L 70 70 M 15 50 L 85 50" stroke="#000000" stroke-width="6" stroke-linecap="round"/>
-        <circle cx="35" cy="40" r="4" fill="#000"/>
-        <circle cx="65" cy="65" r="4" fill="#000"/>
-        
-        <!-- Right Wing - Red & White Calvert Cross Motif -->
-        <path d="M 115 60 C 160 10 210 20 210 60 C 210 95 155 110 115 75 Z" fill="#dc2626" stroke="#000" stroke-width="2"/>
-        <path d="M 135 30 L 195 90 M 150 75 L 180 45" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
-        <circle cx="175" cy="40" r="4" fill="#ffffff"/>
-        <circle cx="145" cy="65" r="4" fill="#ffffff"/>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Better Fly Maryland - Native Garden Planner</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            mdred: '#dc2626',
+            mdgold: '#f59e0b',
+            mddark: '#0f172a'
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Subtle Chesapeake water gradient and flag bar */
+    .md-flag-bar {
+      background: linear-gradient(90deg, #dc2626 0%, #dc2626 25%, #f59e0b 25%, #f59e0b 50%, #000000 50%, #000000 75%, #ffffff 75%, #ffffff 100%);
+    }
+    @keyframes wiggle {
+      0%, 100% { transform: rotate(-3deg); }
+      50% { transform: rotate(3deg); }
+    }
+    .wiggle-hover:hover {
+      animation: wiggle 0.4s ease-in-out infinite;
+    }
+  </style>
+</head>
+<body class="bg-gradient-to-b from-sky-100/80 via-sky-50 to-blue-50 text-slate-800 min-h-screen font-sans antialiased selection:bg-amber-400 selection:text-slate-900">
 
-        <!-- Body & Sunglasses -->
-        <ellipse cx="110" cy="65" rx="8" ry="30" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
-        <!-- Cute Eyes & Sunglasses -->
-        <polygon points="100,50 120,50 118,58 102,58" fill="#000000" stroke="#f59e0b" stroke-width="1.5"/>
-        <line x1="104" y1="54" x2="110" y2="54" stroke="#ffffff" stroke-width="1.5"/>
-        <line x1="112" y1="54" x2="118" y2="54" stroke="#ffffff" stroke-width="1.5"/>
+  <!-- Maryland Flag Top Accent Bar -->
+  <div class="h-2 w-full md-flag-bar"></div>
 
-        <!-- Antennae with Little MD Stars -->
-        <path d="M 107 36 Q 95 20 85 22" stroke="#f59e0b" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-        <path d="M 113 36 Q 125 20 135 22" stroke="#dc2626" stroke-width="2.5" fill="none" stroke-linecap="round"/>
-        <circle cx="85" cy="22" r="3.5" fill="#f59e0b"/>
-        <circle cx="135" cy="22" r="3.5" fill="#dc2626"/>
+  <div class="max-w-6xl mx-auto px-4 py-8 space-y-8">
 
-        <!-- Banner Ribbon under Butterfly -->
-        <rect x="35" y="98" width="150" height="26" rx="13" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
-        <text x="110" y="115" font-family="sans-serif" font-weight="900" font-size="13" fill="#f59e0b" text-anchor="middle" letter-spacing="1">BETTER FLY MARYLAND</text>
-      </svg>
-    </div>
-  </div>
+    <!-- Header Section -->
+    <header class="flex flex-col items-center text-center border-b border-sky-200/80 pb-8 relative">
+      
+      <!-- Whimsical "Better Fly Maryland" Butterfly Graphic -->
+      <div class="mb-4 flex flex-col items-center">
+        <div class="wiggle-hover relative transition transform hover:scale-105 duration-300 cursor-pointer">
+          <svg width="210" height="135" viewBox="0 0 210 135" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <!-- Left Wing - Black & Gold Crossland Motif -->
+            <path d="M 100 60 C 55 10 5 20 5 60 C 5 95 60 110 100 75 Z" fill="#f59e0b" stroke="#0f172a" stroke-width="2.5"/>
+            <!-- Checker stripes -->
+            <path d="M 25 25 L 65 65 M 10 45 L 80 45" stroke="#0f172a" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="30" cy="35" r="4" fill="#0f172a"/>
+            <circle cx="60" cy="60" r="4" fill="#0f172a"/>
+            <circle cx="20" cy="70" r="4" fill="#0f172a"/>
+            
+            <!-- Right Wing - Red & White Calvert Cross Motif -->
+            <path d="M 110 60 C 155 10 205 20 205 60 C 205 95 150 110 110 75 Z" fill="#dc2626" stroke="#0f172a" stroke-width="2.5"/>
+            <!-- White Cross Strokes -->
+            <path d="M 130 25 L 190 85 M 145 70 L 175 40" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+            <circle cx="170" cy="35" r="4" fill="#ffffff"/>
+            <circle cx="140" cy="60" r="4" fill="#ffffff"/>
 
-  <!-- Main Headlines -->
-  <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-2">
-    Maryland Native Garden Planner
-  </h1>
-  <p class="text-amber-800 font-semibold text-sm sm:text-base md:text-lg max-w-2xl">
-    Chesapeake Watershed Ecosystem &amp; Continuous Bloom Succession Designer
-  </p>
+            <!-- Goofy Butterfly Body -->
+            <ellipse cx="105" cy="65" rx="9" ry="28" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
+            
+            <!-- Silly Cool Sunglasses -->
+            <polygon points="94,48 116,48 114,58 96,58" fill="#000000" stroke="#f59e0b" stroke-width="1.5"/>
+            <line x1="98" y1="52" x2="103" y2="52" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+            <line x1="107" y1="52" x2="112" y2="52" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+            <!-- Big Cute Smile -->
+            <path d="M 101 62 Q 105 67 109 62" stroke="#ffffff" stroke-width="2" fill="none" stroke-linecap="round"/>
 
-  <!-- Saved Plan Button -->
-  <div class="mt-5">
-    <button id="open-plan-btn" class="flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold px-5 py-2.5 rounded-xl transition shadow-md hover:shadow-lg">
-      <span>📋 My Yard Plan</span>
-      <span id="plan-counter" class="bg-slate-950 text-amber-400 text-xs px-2 py-0.5 rounded-full font-extrabold">0</span>
-    </button>
-  </div>
-</header>
+            <!-- Playful Wavy Antennae -->
+            <path d="M 102 38 Q 90 20 80 22" stroke="#0f172a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <path d="M 108 38 Q 120 20 130 22" stroke="#0f172a" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+            <circle cx="80" cy="22" r="4" fill="#f59e0b" stroke="#0f172a" stroke-width="1"/>
+            <circle cx="130" cy="22" r="4" fill="#dc2626" stroke="#0f172a" stroke-width="1"/>
 
-<!-- Top Navigation Tabs -->
-<nav class="flex flex-wrap gap-2 border-b border-slate-200 pb-3" id="top-nav-tabs">
-  <button data-tab="pathways" class="nav-tab px-4 py-2 rounded-xl font-semibold text-sm transition bg-amber-500 text-slate-950 shadow-md">
-    🌿 Pathways Explorer
-  </button>
-  <button data-tab="why-natives" class="nav-tab px-4 py-2 rounded-xl font-semibold text-sm transition bg-white text-slate-700 hover:text-slate-900 border border-slate-200 hover:bg-slate-100">
-    📖 Why MD Natives?
-  </button>
-  <button data-tab="deer-defense" class="nav-tab px-4 py-2 rounded-xl font-semibold text-sm transition bg-white text-slate-700 hover:text-slate-900 border border-slate-200 hover:bg-slate-100">
-    🦌 Deer &amp; Bunny Defense
-  </button>
-  <button data-tab="water-guide" class="nav-tab px-4 py-2 rounded-xl font-semibold text-sm transition bg-white text-slate-700 hover:text-slate-900 border border-slate-200 hover:bg-slate-100">
-    💧 Water Station Guide
-  </button>
-</nav>
-
-<!-- TAB 1: PATHWAYS EXPLORER -->
-<main id="tab-pathways" class="tab-content space-y-6">
-
-  <!-- Pathway Selector Buttons -->
-  <div class="space-y-3">
-    <label class="text-xs uppercase tracking-wider font-bold text-slate-600 block">
-      Select Ecological Pathway:
-    </label>
-    <div class="grid grid-cols-2 md:grid-cols-4 gap-3" id="pathway-buttons">
-      <button data-pathway="pollinators" class="pathway-btn p-3.5 rounded-2xl border text-left transition flex flex-col justify-between bg-amber-500/10 border-amber-500 text-amber-900 font-bold shadow-sm">
-        <span class="text-lg">🐝</span>
-        <span class="text-sm mt-1">Pollinator Powerhouse</span>
-      </button>
-      <button data-pathway="hummingbirds" class="pathway-btn p-3.5 rounded-2xl border text-left transition flex flex-col justify-between bg-white border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-100/50">
-        <span class="text-lg">🐦</span>
-        <span class="text-sm mt-1">Hummingbird Haven</span>
-      </button>
-      <button data-pathway="butterflies" class="pathway-btn p-3.5 rounded-2xl border text-left transition flex flex-col justify-between bg-white border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-100/50">
-        <span class="text-lg">🦋</span>
-        <span class="text-sm mt-1">Butterfly Sanctuary</span>
-      </button>
-      <button data-pathway="mix" class="pathway-btn p-3.5 rounded-2xl border text-left transition flex flex-col justify-between bg-white border-slate-200 text-slate-700 hover:border-slate-300 hover:bg-slate-100/50">
-        <span class="text-lg">🌸</span>
-        <span class="text-sm mt-1">Complete MD Mix</span>
-      </button>
-    </div>
-  </div>
-
-  <!-- Dynamic Pathway Banner -->
-  <div id="pathway-banner" class="p-4 rounded-2xl bg-amber-50 border border-amber-300/80 text-slate-800 text-sm leading-relaxed flex items-start gap-3 shadow-sm">
-    <span class="text-xl">💡</span>
-    <div id="pathway-banner-text">
-      <strong class="text-amber-900">Pollinator Powerhouse:</strong> Focuses on native specialist bees, bumblebee queens, and beneficial wasps that co-evolved with Maryland flora. Mints and composite fall blooms provide steady high-protein pollen.
-    </div>
-  </div>
-
-  <!-- Filters & Controls Bar -->
-  <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm grid grid-cols-1 md:grid-cols-3 gap-4">
-    <!-- Sun Exposure -->
-    <div>
-      <label class="text-xs font-semibold text-slate-700 block mb-1.5">Sun Light</label>
-      <select id="filter-sun" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-800 focus:outline-none focus:border-amber-500 focus:bg-white">
-        <option value="all">☀️ All Sun Levels</option>
-        <option value="full_sun">Full Sun (6+ hrs)</option>
-        <option value="partial_shade">Partial Shade (3–6 hrs)</option>
-        <option value="full_shade">Full Shade (&lt;3 hrs)</option>
-      </select>
-    </div>
-
-    <!-- Soil Moisture -->
-    <div>
-      <label class="text-xs font-semibold text-slate-700 block mb-1.5">Soil Moisture</label>
-      <select id="filter-moisture" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-800 focus:outline-none focus:border-amber-500 focus:bg-white">
-        <option value="all">💧 All Moisture Levels</option>
-        <option value="dry">Dry / Well-Drained</option>
-        <option value="average">Average / Medium</option>
-        <option value="wet">Wet / Moist</option>
-      </select>
-    </div>
-
-    <!-- Search Input -->
-    <div>
-      <label class="text-xs font-semibold text-slate-700 block mb-1.5">Search Species</label>
-      <input id="filter-search" type="text" placeholder="Search by common or botanical name..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-800 focus:outline-none focus:border-amber-500 focus:bg-white placeholder-slate-400" />
-    </div>
-  </div>
-
-  <!-- 4-Season Bloom Calendar Grid -->
-  <div class="space-y-4">
-    <h2 class="text-xl font-bold text-slate-900 flex items-center justify-between">
-      <span id="calendar-title">Continuous Bloom Succession</span>
-      <span id="match-count-badge" class="text-xs bg-slate-200 text-slate-800 px-3 py-1 rounded-full font-semibold border border-slate-300">19 Matching Species</span>
-    </h2>
-
-    <div id="bloom-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
-      <!-- Populated dynamically via JS -->
-    </div>
-  </div>
-
-</main>
-
-<!-- TAB 2: WHY MD NATIVES? -->
-<section id="tab-why-natives" class="tab-content hidden space-y-6">
-  <div class="bg-white border border-slate-200 p-6 md:p-8 rounded-2xl space-y-6 shadow-sm">
-    <h2 class="text-2xl font-bold text-amber-800 flex items-center gap-2">
-      <span>📖</span> The Ecological Power of Maryland Native Flora
-    </h2>
-
-    <p class="text-slate-700 leading-relaxed text-base">
-      Maryland's native flora evolved alongside local wildlife within the Chesapeake Bay watershed, forming the irreplaceable ecological foundation for our regional songbirds, native bees, and migrating species. Planted in local Piedmont clay or Coastal Plain sandy loams, native perennials and shrubs establish deep root systems that require zero synthetic fertilizers or chemical pesticides once established. They naturally manage local climate extremes while drastically improving groundwater absorption and reducing urban stormwater runoff into local tributaries.
-    </p>
-
-    <p class="text-slate-700 leading-relaxed text-base">
-      Replacing traditional turf lawns with layered native plant communities creates self-sustaining habitat corridors across suburban and urban landscapes. Beyond supporting specialized insects—such as mining bees and swallowtail caterpillars—native roots bind soil structure to prevent erosion and capture carbon deep underground. A yard planted with native flora serves as a living, climate-resilient sanctuary that restores authentic Chesapeake ecology to your home landscape.
-    </p>
-  </div>
-</section>
-
-<!-- TAB 3: DEER & BUNNY DEFENSE -->
-<section id="tab-deer-defense" class="tab-content hidden space-y-6">
-  <div class="bg-white border border-slate-200 p-6 md:p-8 rounded-2xl space-y-6 shadow-sm">
-    <h2 class="text-2xl font-bold text-red-600 flex items-center gap-2">
-      <span>🦌</span> Proactive Deer &amp; Rabbit Protection Strategies
-    </h2>
-
-    <div class="p-4 bg-red-50 border border-red-200 rounded-xl text-red-900 text-sm">
-      <strong>The Early Season Smelly Spray Strategy:</strong> Browsing animals establish feeding habits early in spring when tender new growth emerges. You must apply repellents BEFORE flower buds open.
-    </div>
-
-    <p class="text-slate-700 leading-relaxed text-base">
-      Managing deer and rabbit browsing requires an offensive strategy early in the season. Liquid repellents containing putrescent egg solids, garlic, or clove oils create a powerful olfactory barrier. Spraying these smelly preps directly onto early flower buds and emerging spring foliage every 10–14 days (and after heavy rainfall) conditions local wildlife to avoid your plant beds before habits form.
-    </p>
-
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-      <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
-        <h3 class="font-bold text-amber-800">🛡️ Physical Barriers for Young Plants</h3>
-        <p class="text-slate-600">Protect young anchor plants with temporary 24-inch hardware cloth cylinders anchored with stakes until roots establish and stems coarsen.</p>
+            <!-- Banner Badge under Butterfly -->
+            <rect x="30" y="100" width="150" height="26" rx="13" fill="#0f172a" stroke="#f59e0b" stroke-width="2"/>
+            <text x="105" y="117" font-family="sans-serif" font-weight="900" font-size="12" fill="#f59e0b" text-anchor="middle" letter-spacing="1">BETTER FLY MARYLAND</text>
+          </svg>
+        </div>
       </div>
-      <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
-        <h3 class="font-bold text-amber-800">🌿 Aromatic Plant Screens</h3>
-        <p class="text-slate-600">Plant unpalatable, highly aromatic species like Clustered Mountain Mint (*Pycnanthemum*) or Fragrant Sumac (*Rhus*) along bed borders to deter rabbits naturally.</p>
+
+      <!-- Main Headlines -->
+      <h1 class="text-3xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-900 mb-2">
+        Maryland Native Garden Planner
+      </h1>
+      <p class="text-amber-800 font-semibold text-sm sm:text-base md:text-lg max-w-2xl">
+        Chesapeake Watershed Ecosystem &amp; Continuous Bloom Succession Designer
+      </p>
+
+      <!-- Saved Plan Button -->
+      <div class="mt-5">
+        <button id="open-plan-btn" class="flex items-center justify-center gap-2 bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold px-5 py-2.5 rounded-xl transition shadow-md hover:shadow-lg">
+          <span>📋 My Yard Plan</span>
+          <span id="plan-counter" class="bg-slate-950 text-amber-400 text-xs px-2 py-0.5 rounded-full font-extrabold">0</span>
+        </button>
+      </div>
+    </header>
+
+    <!-- Navigation Tabs -->
+    <nav class="flex flex-wrap gap-2 border-b border-sky-200/80 pb-3" id="top-nav-tabs">
+      <button data-tab="pathways" class="nav-tab px-4 py-2 rounded-xl font-semibold text-sm transition bg-amber-500 text-slate-950 shadow-md">
+        🌿 Pathways Explorer
+      </button>
+      <button data-tab="why-natives" class="nav-tab px-4 py-2 rounded-xl font-semibold text-sm transition bg-white/80 text-slate-700 hover:text-slate-900 border border-sky-200 hover:bg-white">
+        📖 Why MD Natives?
+      </button>
+      <button data-tab="deer-defense" class="nav-tab px-4 py-2 rounded-xl font-semibold text-sm transition bg-white/80 text-slate-700 hover:text-slate-900 border border-sky-200 hover:bg-white">
+        🦌 Deer &amp; Bunny Defense
+      </button>
+      <button data-tab="water-guide" class="nav-tab px-4 py-2 rounded-xl font-semibold text-sm transition bg-white/80 text-slate-700 hover:text-slate-900 border border-sky-200 hover:bg-white">
+        💧 Water Station Guide
+      </button>
+    </nav>
+
+    <!-- TAB 1: PATHWAYS EXPLORER -->
+    <main id="tab-pathways" class="tab-content space-y-6">
+
+      <!-- Pathway Selector Buttons -->
+      <div class="space-y-3">
+        <label class="text-xs uppercase tracking-wider font-bold text-slate-600 block">
+          Select Ecological Pathway:
+        </label>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-3" id="pathway-buttons">
+          <button data-pathway="pollinators" class="pathway-btn p-3.5 rounded-2xl border text-left transition flex flex-col justify-between bg-amber-500/10 border-amber-500 text-amber-900 font-bold shadow-sm">
+            <span class="text-lg">🐝</span>
+            <span class="text-sm mt-1">Pollinator Powerhouse</span>
+          </button>
+          <button data-pathway="hummingbirds" class="pathway-btn p-3.5 rounded-2xl border text-left transition flex flex-col justify-between bg-white/80 border-sky-200 text-slate-700 hover:border-sky-300 hover:bg-white">
+            <span class="text-lg">🐦</span>
+            <span class="text-sm mt-1">Hummingbird Haven</span>
+          </button>
+          <button data-pathway="butterflies" class="pathway-btn p-3.5 rounded-2xl border text-left transition flex flex-col justify-between bg-white/80 border-sky-200 text-slate-700 hover:border-sky-300 hover:bg-white">
+            <span class="text-lg">🦋</span>
+            <span class="text-sm mt-1">Butterfly Sanctuary</span>
+          </button>
+          <button data-pathway="mix" class="pathway-btn p-3.5 rounded-2xl border text-left transition flex flex-col justify-between bg-white/80 border-sky-200 text-slate-700 hover:border-sky-300 hover:bg-white">
+            <span class="text-lg">🌸</span>
+            <span class="text-sm mt-1">Complete MD Mix</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Dynamic Pathway Banner -->
+      <div id="pathway-banner" class="p-4 rounded-2xl bg-amber-50 border border-amber-300/80 text-slate-800 text-sm leading-relaxed flex items-start gap-3 shadow-sm">
+        <span class="text-xl">💡</span>
+        <div id="pathway-banner-text">
+          <strong class="text-amber-900">Pollinator Powerhouse:</strong> Focuses on native specialist bees, bumblebee queens, and beneficial wasps that co-evolved with Maryland flora. Mints and composite fall blooms provide steady high-protein pollen.
+        </div>
+      </div>
+
+      <!-- Filters & Controls Bar -->
+      <div class="bg-white p-5 rounded-2xl border border-sky-200 shadow-sm grid grid-cols-1 md:grid-cols-3 gap-4">
+        <!-- Sun Exposure -->
+        <div>
+          <label class="text-xs font-semibold text-slate-700 block mb-1.5">Sun Light</label>
+          <select id="filter-sun" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-800 focus:outline-none focus:border-amber-500 focus:bg-white">
+            <option value="all">☀️ All Sun Levels</option>
+            <option value="full_sun">Full Sun (6+ hrs)</option>
+            <option value="partial_shade">Partial Shade (3–6 hrs)</option>
+            <option value="full_shade">Full Shade (&lt;3 hrs)</option>
+          </select>
+        </div>
+
+        <!-- Soil Moisture -->
+        <div>
+          <label class="text-xs font-semibold text-slate-700 block mb-1.5">Soil Moisture</label>
+          <select id="filter-moisture" class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-800 focus:outline-none focus:border-amber-500 focus:bg-white">
+            <option value="all">💧 All Moisture Levels</option>
+            <option value="dry">Dry / Well-Drained</option>
+            <option value="average">Average / Medium</option>
+            <option value="wet">Wet / Moist</option>
+          </select>
+        </div>
+
+        <!-- Search Input -->
+        <div>
+          <label class="text-xs font-semibold text-slate-700 block mb-1.5">Search Species</label>
+          <input id="filter-search" type="text" placeholder="Search by common or botanical name..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2 text-sm text-slate-800 focus:outline-none focus:border-amber-500 focus:bg-white placeholder-slate-400" />
+        </div>
+      </div>
+
+      <!-- 4-Season Bloom Calendar Grid -->
+      <div class="space-y-4">
+        <h2 class="text-xl font-bold text-slate-900 flex items-center justify-between">
+          <span id="calendar-title">Continuous Bloom Succession</span>
+          <span id="match-count-badge" class="text-xs bg-sky-100 text-sky-900 px-3 py-1 rounded-full font-semibold border border-sky-200">19 Matching Species</span>
+        </h2>
+
+        <div id="bloom-grid" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </div>
+
+    </main>
+
+    <!-- TAB 2: WHY MD NATIVES? -->
+    <section id="tab-why-natives" class="tab-content hidden space-y-6">
+      <div class="bg-white border border-sky-200 p-6 md:p-8 rounded-2xl space-y-6 shadow-sm">
+        <h2 class="text-2xl font-bold text-amber-800 flex items-center gap-2">
+          <span>📖</span> The Ecological Power of Maryland Native Flora
+        </h2>
+
+        <p class="text-slate-700 leading-relaxed text-base">
+          Maryland's native flora evolved alongside local wildlife within the Chesapeake Bay watershed, forming the irreplaceable ecological foundation for our regional songbirds, native bees, and migrating species. Planted in local Piedmont clay or Coastal Plain sandy loams, native perennials and shrubs establish deep root systems that require zero synthetic fertilizers or chemical pesticides once established. They naturally manage local climate extremes while drastically improving groundwater absorption and reducing urban stormwater runoff into local tributaries.
+        </p>
+
+        <p class="text-slate-700 leading-relaxed text-base">
+          Replacing traditional turf lawns with layered native plant communities creates self-sustaining habitat corridors across suburban and urban landscapes. Beyond supporting specialized insects—such as mining bees and swallowtail caterpillars—native roots bind soil structure to prevent erosion and capture carbon deep underground. A yard planted with native flora serves as a living, climate-resilient sanctuary that restores authentic Chesapeake ecology to your home landscape.
+        </p>
+      </div>
+    </section>
+
+    <!-- TAB 3: DEER & BUNNY DEFENSE -->
+    <section id="tab-deer-defense" class="tab-content hidden space-y-6">
+      <div class="bg-white border border-sky-200 p-6 md:p-8 rounded-2xl space-y-6 shadow-sm">
+        <h2 class="text-2xl font-bold text-red-600 flex items-center gap-2">
+          <span>🦌</span> Proactive Deer &amp; Rabbit Protection Strategies
+        </h2>
+
+        <div class="p-4 bg-red-50 border border-red-200 rounded-xl text-red-900 text-sm">
+          <strong>The Early Season Smelly Spray Strategy:</strong> Browsing animals establish feeding habits early in spring when tender new growth emerges. You must apply repellents BEFORE flower buds open.
+        </div>
+
+        <p class="text-slate-700 leading-relaxed text-base">
+          Managing deer and rabbit browsing requires an offensive strategy early in the season. Liquid repellents containing putrescent egg solids, garlic, or clove oils create a powerful olfactory barrier. Spraying these smelly preps directly onto early flower buds and emerging spring foliage every 10–14 days (and after heavy rainfall) conditions local wildlife to avoid your plant beds before habits form.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+          <div class="p-4 bg-sky-50/50 rounded-xl border border-sky-200 space-y-2">
+            <h3 class="font-bold text-amber-800">🛡️ Physical Barriers for Young Plants</h3>
+            <p class="text-slate-600">Protect young anchor plants with temporary 24-inch hardware cloth cylinders anchored with stakes until roots establish and stems coarsen.</p>
+          </div>
+          <div class="p-4 bg-sky-50/50 rounded-xl border border-sky-200 space-y-2">
+            <h3 class="font-bold text-amber-800">🌿 Aromatic Plant Screens</h3>
+            <p class="text-slate-600">Plant unpalatable, highly aromatic species like Clustered Mountain Mint (*Pycnanthemum*) or Fragrant Sumac (*Rhus*) along bed borders to deter rabbits naturally.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TAB 4: WATER STATION GUIDE -->
+    <section id="tab-water-guide" class="tab-content hidden space-y-6">
+      <div class="bg-white border border-sky-200 p-6 md:p-8 rounded-2xl space-y-6 shadow-sm">
+        <h2 class="text-2xl font-bold text-blue-700 flex items-center gap-2">
+          <span>💧</span> Designing a Safe, Mosquito-Free Water Station
+        </h2>
+
+        <p class="text-slate-700 leading-relaxed text-base">
+          Adding a clean water feature turns a native garden bed into a high-density wildlife sanctuary. Native bees, butterflies, and songbirds require consistent moisture, but deep open containers pose drowning hazards. A shallow terracotta basin or stone dish with sloped edges, lined with exposed river gravel and perching stones, allows pollinators to land and drink safely without submerging.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
+          <div class="p-4 bg-sky-50/50 rounded-xl border border-sky-200 space-y-2">
+            <h3 class="font-bold text-blue-800">☀️ Solar Bubbler &amp; Mosquito Control</h3>
+            <p class="text-slate-600">Adding a small solar-powered fountain disk keeps water rippling continuously. Moving water prevents mosquitoes from laying eggs and keeps water fresh.</p>
+          </div>
+          <div class="p-4 bg-sky-50/50 rounded-xl border border-sky-200 space-y-2">
+            <h3 class="font-bold text-blue-800">🎵 Acoustic Cue for Migrants</h3>
+            <p class="text-slate-600">The gentle sound of splashing water acts as a beacon, guiding migrating Ruby-throated Hummingbirds and songbirds directly down into your yard.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- DRAWER / MODAL: MY YARD PLAN -->
+  <div id="plan-drawer-overlay" class="fixed inset-0 bg-slate-900/60 backdrop-blur-sm z-50 hidden flex justify-end">
+    <div class="w-full max-w-lg bg-white border-l border-slate-200 h-full p-6 space-y-6 flex flex-col justify-between overflow-y-auto shadow-2xl">
+      <div class="space-y-6">
+        <div class="flex items-center justify-between border-b border-slate-200 pb-4">
+          <h2 class="text-xl font-bold text-amber-800 flex items-center gap-2">
+            <span>📋</span> My Saved Yard Plan
+          </h2>
+          <button id="close-plan-btn" class="text-slate-400 hover:text-slate-800 text-2xl font-bold">&times;</button>
+        </div>
+
+        <div id="plan-items-container" class="space-y-3">
+          <!-- Populated dynamically via JS -->
+        </div>
+      </div>
+
+      <div class="space-y-3 border-t border-slate-200 pt-4">
+        <button id="clear-plan-btn" class="w-full py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-sm font-semibold transition">
+          Clear Saved Plan
+        </button>
+        <button id="print-plan-btn" class="w-full py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 rounded-xl text-sm font-bold transition shadow-md">
+          🖨️ Print / Copy Nursery List
+        </button>
       </div>
     </div>
   </div>
-</section>
 
-<!-- TAB 4: WATER STATION GUIDE -->
-<section id="tab-water-guide" class="tab-content hidden space-y-6">
-  <div class="bg-white border border-slate-200 p-6 md:p-8 rounded-2xl space-y-6 shadow-sm">
-    <h2 class="text-2xl font-bold text-blue-700 flex items-center gap-2">
-      <span>💧</span> Designing a Safe, Mosquito-Free Water Station
-    </h2>
+  <!-- APPLICATION LOGIC & DATASET -->
+  <script>
+    // 19 Maryland Native Plant Dataset
+    const plants = [
+      {
+        id: "cardinal-flower",
+        commonName: "Cardinal Flower",
+        botanicalName: "Lobelia cardinalis",
+        sun: ["full_sun", "partial_shade"],
+        moisture: ["average", "wet"],
+        bloomSeason: ["summer", "fall"],
+        layer: "Anchor",
+        pathways: ["hummingbirds", "mix"],
+        deerResistant: true,
+        ecologicalValue: "High-octane nectar source for Ruby-throated Hummingbirds and Swallowtails.",
+        hummingbirdNote: "Hummingbirds also hunt small soft-bodied insects around these blooms for nestling protein."
+      },
+      {
+        id: "woodland-pinkroot",
+        commonName: "Woodland Pinkroot",
+        botanicalName: "Spigelia marilandica",
+        sun: ["partial_shade", "full_shade"],
+        moisture: ["average", "wet"],
+        bloomSeason: ["spring", "summer"],
+        layer: "Anchor",
+        pathways: ["hummingbirds", "mix"],
+        deerResistant: true,
+        ecologicalValue: "Top shade-tolerant native nectar tube for early returning hummingbirds."
+      },
+      {
+        id: "coral-honeysuckle",
+        commonName: "Coral Honeysuckle",
+        botanicalName: "Lonicera sempervirens",
+        sun: ["full_sun", "partial_shade"],
+        moisture: ["dry", "average"],
+        bloomSeason: ["spring", "summer"],
+        layer: "Vine",
+        pathways: ["hummingbirds", "butterflies", "mix"],
+        deerResistant: true,
+        ecologicalValue: "Non-invasive native vine; critical spring nectar hub and Spring Azure butterfly host."
+      },
+      {
+        id: "wild-bergamot",
+        commonName: "Wild Bergamot",
+        botanicalName: "Monarda fistulosa",
+        sun: ["full_sun", "partial_shade"],
+        moisture: ["dry", "average"],
+        bloomSeason: ["summer"],
+        layer: "Filler",
+        pathways: ["hummingbirds", "pollinators", "mix"],
+        deerResistant: true,
+        ecologicalValue: "Visited heavily by hummingbirds, clearwing moths, and specialist native bees."
+      },
+      {
+        id: "clustered-mountain-mint",
+        commonName: "Clustered Mountain Mint",
+        botanicalName: "Pycnanthemum muticum",
+        sun: ["full_sun", "partial_shade"],
+        moisture: ["dry", "average"],
+        bloomSeason: ["summer"],
+        layer: "Filler",
+        pathways: ["pollinators", "mix"],
+        deerResistant: true,
+        spreaderWarning: "Spreads via rhizomes; excellent natural weed suppressor.",
+        ecologicalValue: "Supports dozens of native bee species, beneficial wasps, and hoverflies."
+      },
+      {
+        id: "showy-goldenrod",
+        commonName: "Showy Goldenrod",
+        botanicalName: "Solidago speciosa",
+        sun: ["full_sun"],
+        moisture: ["dry", "average"],
+        bloomSeason: ["fall"],
+        layer: "Filler",
+        pathways: ["pollinators", "mix"],
+        deerResistant: true,
+        ecologicalValue: "Pivotal fall pollen bank for migrating monarch butterflies and overwintering queens."
+      },
+      {
+        id: "wild-geranium",
+        commonName: "Wild Geranium",
+        botanicalName: "Geranium maculatum",
+        sun: ["partial_shade", "full_shade"],
+        moisture: ["average"],
+        bloomSeason: ["spring"],
+        layer: "Groundcover",
+        pathways: ["pollinators", "mix"],
+        deerResistant: true,
+        ecologicalValue: "Essential early spring forage for native mining bees and specialist pollinators."
+      },
+      {
+        id: "butterfly-weed",
+        commonName: "Butterfly Weed",
+        botanicalName: "Asclepias tuberosa",
+        sun: ["full_sun"],
+        moisture: ["dry", "average"],
+        bloomSeason: ["summer"],
+        layer: "Filler",
+        pathways: ["butterflies", "mix"],
+        deerResistant: true,
+        cautionaryNote: "⚠️ NOT Butterfly Bush: Avoid invasive Butterfly Bush (Buddleja davidii) which offers zero caterpillar host value. Native Butterfly Weed provides rich nectar AND vital Monarch host habitat.",
+        ecologicalValue: "Primary host plant for Monarch butterfly caterpillars."
+      },
+      {
+        id: "joe-pye-weed",
+        commonName: "Joe Pye Weed",
+        botanicalName: "Eutrochium fistulosum",
+        sun: ["full_sun", "partial_shade"],
+        moisture: ["average", "wet"],
+        bloomSeason: ["summer", "fall"],
+        layer: "Background",
+        pathways: ["butterflies", "pollinators", "mix"],
+        deerResistant: true,
+        ecologicalValue: "Late-summer feeding hub for Tiger Swallowtails and native bumblebees."
+      },
+      {
+        id: "golden-alexander",
+        commonName: "Golden Alexander",
+        botanicalName: "Zizia aurea",
+        sun: ["full_sun", "partial_shade"],
+        moisture: ["average", "wet"],
+        bloomSeason: ["spring"],
+        layer: "Filler",
+        pathways: ["butterflies", "pollinators", "mix"],
+        deerResistant: true,
+        ecologicalValue: "Primary caterpillar host plant for the Black Swallowtail butterfly."
+      },
+      {
+        id: "little-bluestem",
+        commonName: "Little Bluestem",
+        botanicalName: "Schizachyrium scoparium",
+        sun: ["full_sun"],
+        moisture: ["dry", "average"],
+        bloomSeason: ["fall"],
+        layer: "Background",
+        pathways: ["butterflies", "mix"],
+        deerResistant: true,
+        ecologicalValue: "Native bunchgrass; host plant for skipper butterflies and winter bird shelter."
+      },
+      {
+        id: "golden-ragwort",
+        commonName: "Golden Ragwort",
+        botanicalName: "Packera aurea",
+        sun: ["full_sun", "partial_shade", "full_shade"],
+        moisture: ["average", "wet"],
+        bloomSeason: ["spring"],
+        layer: "Groundcover",
+        pathways: ["pollinators", "mix"],
+        deerResistant: true,
+        ecologicalValue: "Critical early spring bloom for emerging native bees; evergreen groundcover."
+      },
+      {
+        id: "blue-mistflower",
+        commonName: "Blue Mistflower",
+        botanicalName: "Conoclinium coelestinum",
+        sun: ["full_sun", "partial_shade"],
+        moisture: ["average", "wet"],
+        bloomSeason: ["late_summer", "fall"],
+        layer: "Groundcover",
+        pathways: ["butterflies", "pollinators", "mix"],
+        deerResistant: true,
+        spreaderWarning: "Forms dense colonies easily; deadhead seedheads to limit spread if needed.",
+        ecologicalValue: "Abundant late-season nectar for migrating Monarchs and native bees."
+      },
+      {
+        id: "purple-coneflower",
+        commonName: "Purple Coneflower",
+        botanicalName: "Echinacea purpurea",
+        sun: ["full_sun", "partial_shade"],
+        moisture: ["dry", "average"],
+        bloomSeason: ["summer"],
+        layer: "Anchor",
+        pathways: ["pollinators", "butterflies", "mix"],
+        deerResistant: true,
+        ecologicalValue: "Nectar hub for butterflies; seedheads feed American Goldfinches in winter."
+      },
+      {
+        id: "fragrant-sumac",
+        commonName: "Fragrant Sumac 'Gro-Low'",
+        botanicalName: "Rhus aromatica",
+        sun: ["full_sun", "partial_shade"],
+        moisture: ["dry", "average"],
+        bloomSeason: ["spring"],
+        layer: "Groundcover",
+        pathways: ["pollinators", "mix"],
+        deerResistant: true,
+        ecologicalValue: "Tough native woody groundcover providing spring bloom forage and red fall foliage."
+      },
+      {
+        id: "pennsylvania-sedge",
+        commonName: "Pennsylvania Sedge",
+        botanicalName: "Carex pensylvanica",
+        sun: ["partial_shade", "full_shade"],
+        moisture: ["dry", "average"],
+        bloomSeason: ["spring"],
+        layer: "Groundcover",
+        pathways: ["pollinators", "mix"],
+        deerResistant: true,
+        ecologicalValue: "Excellent native lawn replacement for shaded, dry MD soils."
+      },
+      {
+        id: "aromatic-aster",
+        commonName: "Aromatic Aster",
+        botanicalName: "Symphyotrichum oblongifolium",
+        sun: ["full_sun"],
+        moisture: ["dry", "average"],
+        bloomSeason: ["fall"],
+        layer: "Groundcover",
+        pathways: ["butterflies", "pollinators", "mix"],
+        deerResistant: true,
+        ecologicalValue: "Ultra-late bloom source essential for late-season pollinators."
+      },
+      {
+        id: "black-eyed-susan",
+        commonName: "Black-Eyed Susan",
+        botanicalName: "Rudbeckia fulgida",
+        sun: ["full_sun", "partial_shade"],
+        moisture: ["average"],
+        bloomSeason: ["summer", "fall"],
+        layer: "Filler",
+        pathways: ["pollinators", "butterflies", "mix"],
+        deerResistant: true,
+        ecologicalValue: "Maryland State Flower; long bloom window providing high nectar volumes."
+      },
+      {
+        id: "broadleaf-goldenrod",
+        commonName: "Broadleaf Goldenrod",
+        botanicalName: "Solidago flexicaulis",
+        sun: ["partial_shade", "full_shade"],
+        moisture: ["average"],
+        bloomSeason: ["fall"],
+        layer: "Filler",
+        pathways: ["pollinators", "mix"],
+        deerResistant: true,
+        ecologicalValue: "Shade-tolerant goldenrod providing crucial late fall pollen in wooded yards."
+      }
+    ];
 
-    <p class="text-slate-700 leading-relaxed text-base">
-      Adding a clean water feature turns a native garden bed into a high-density wildlife sanctuary. Native bees, butterflies, and songbirds require consistent moisture, but deep open containers pose drowning hazards. A shallow terracotta basin or stone dish with sloped edges, lined with exposed river gravel and perching stones, allows pollinators to land and drink safely without submerging.
-    </p>
+    const seasons = [
+      { id: "spring", label: "Spring" },
+      { id: "summer", label: "Mid-Summer" },
+      { id: "late_summer", label: "Late Summer" },
+      { id: "fall", label: "Fall" }
+    ];
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm">
-      <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
-        <h3 class="font-bold text-blue-800">☀️ Solar Bubbler &amp; Mosquito Control</h3>
-        <p class="text-slate-600">Adding a small solar-powered fountain disk keeps water rippling continuously. Moving water prevents mosquitoes from laying eggs and keeps water fresh.</p>
-      </div>
-      <div class="p-4 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
-        <h3 class="font-bold text-blue-800">🎵 Acoustic Cue for Migrants</h3>
-        <p class="text-slate-600">The gentle sound of splashing water acts as a beacon, guiding migrating Ruby-throated Hummingbirds and songbirds directly down into your yard.</p>
-      </div>
-    </div>
-  </div>
-</section>
+    const pathwayBanners = {
+      pollinators: "<strong>🐝 Pollinator Powerhouse:</strong> Focuses on native specialist bees, bumblebee queens, and beneficial wasps that co-evolved with Maryland flora. Mints and composite fall blooms provide steady high-protein pollen.",
+      hummingbirds: "<strong>🐦 Hummingbird Haven:</strong> Pairs deep tubular nectar sources with host plants for soft-bodied insects (gnats, aphids, spiders)—essential protein hummingbirds feed to their nestlings.",
+      butterflies: "<strong>🦋 Butterfly Sanctuary:</strong> Balances caterpillar host plants (where eggs are laid) with adult nectar stations. Includes explicit cautionary alerts against non-native invasive Butterfly Bush.",
+      mix: "<strong>🌸 Complete Maryland Biodiversity Mix:</strong> Full ecosystem design balancing all bloom seasons, plant layers, and wildlife benefits across Maryland's regional watershed."
+    };
 
+    // State Variables
+    let currentTab = 'pathways';
+    let currentPathway = 'pollinators';
+    let currentSun = 'all';
+    let currentMoisture = 'all';
+    let searchQuery = '';
+    let savedPlan = JSON.parse(localStorage.getItem('md_yard_plan') || '[]');
 
-    <div id="plan-items-container" class="space-y-3">
-      <!-- Populated dynamically via JS -->
-    </div>
-  </div>
+    // Setup Tab Listeners
+    document.querySelectorAll('.nav-tab').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentTab = btn.getAttribute('data-tab');
+        document.querySelectorAll('.nav-tab').forEach(b => {
+          b.className = 'nav-tab px-4 py-2 rounded-xl font-semibold text-sm transition bg-white/80 text-slate-700 hover:text-slate-900 border border-sky-200 hover:bg-white';
+        });
+        btn.className = 'nav-tab px-4 py-2 rounded-xl font-semibold text-sm transition bg-amber-500 text-slate-950 shadow-md';
 
-  <div class="space-y-3 border-t border-slate-200 pt-4">
-    <button id="clear-plan-btn" class="w-full py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 rounded-xl text-sm font-semibold transition">
-      Clear Saved Plan
-    </button>
-    <button id="print-plan-btn" class="w-full py-2.5 bg-amber-500 hover:bg-amber-400 text-slate-950 rounded-xl text-sm font-bold transition shadow-md">
-      🖨️ Print / Copy Nursery List
-    </button>
-  </div>
-</div>
+        document.querySelectorAll('.tab-content').forEach(c => c.classList.add('hidden'));
+        document.getElementById(`tab-${currentTab}`).classList.remove('hidden');
+      });
+    });
+
+    // Setup Pathway Listeners
+    document.querySelectorAll('.pathway-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        currentPathway = btn.getAttribute('data-pathway');
+        document.querySelectorAll('.pathway-btn').forEach(b => {
+          b.className = 'pathway-btn p-3.5 rounded-2xl border text-left transition flex flex-col justify-between bg-white/80 border-sky-200 text-slate-700 hover:border-sky-300 hover:bg-white';
+        });
+        btn.className = 'pathway-btn p-3.5 rounded-2xl border text-left transition flex flex-col justify-between bg-amber-500/10 border-amber-500 text-amber-900 font-bold shadow-sm';
+
+        document.getElementById('pathway-banner-text').innerHTML = pathwayBanners[currentPathway];
+        render();
+      });
+    });
+
+    // Setup Filter Listeners
+    document.getElementById('filter-sun').addEventListener('change', (e) => {
+      currentSun = e.target.value;
+      render();
+    });
+
+    document.getElementById('filter-moisture').addEventListener('change', (e) => {
+      currentMoisture = e.target.value;
+      render();
+    });
+
+    document.getElementById('filter-search').addEventListener('input', (e) => {
+      searchQuery = e.target.value.toLowerCase().trim();
+      render();
+    });
+
+    // Drawer Controls
+    document.getElementById('open-plan-btn').addEventListener('click', () => {
+      document.getElementById('plan-drawer-overlay').classList.remove('hidden');
+      renderPlanDrawer();
+    });
+
+    document.getElementById('close-plan-btn').addEventListener('click', () => {
+      document.getElementById('plan-drawer-overlay').classList.add('hidden');
+    });
+
+    document.getElementById('clear-plan-btn').addEventListener('click', () => {
+      savedPlan = [];
+      localStorage.setItem('md_yard_plan', JSON.stringify(savedPlan));
+      updateCounter();
+      renderPlanDrawer();
+      render();
+    });
+
+    document.getElementById('print-plan-btn').addEventListener('click', () => {
+      if (savedPlan.length === 0) {
+        alert("Your plan is empty! Add species first.");
+        return;
+      }
+      const plantListText = savedPlan.map(id => {
+        const p = plants.find(item => item.id === id);
+        return `- ${p.commonName} (${p.botanicalName}) [Layer: ${p.layer}]`;
+      }).join('\n');
+
+      navigator.clipboard.writeText(`Maryland Native Garden Shopping List:\n\n${plantListText}`);
+      alert("Shopping list copied to clipboard! You can paste it into Notes or print it.");
+    });
+
+    function togglePlan(id) {
+      if (savedPlan.includes(id)) {
+        savedPlan = savedPlan.filter(item => item !== id);
+      } else {
+        savedPlan.push(id);
+      }
+      localStorage.setItem('md_yard_plan', JSON.stringify(savedPlan));
+      updateCounter();
+      render();
+    }
+
+    function updateCounter() {
+      document.getElementById('plan-counter').textContent = savedPlan.length;
+    }
+
+    // Main Render Function
+    function render() {
+      const filtered = plants.filter(p => {
+        const matchesPathway = currentPathway === 'mix' || p.pathways.includes(currentPathway);
+        const matchesSun = currentSun === 'all' || p.sun.includes(currentSun);
+        const matchesMoisture = currentMoisture === 'all' || p.moisture.includes(currentMoisture);
+        const matchesSearch = !searchQuery || 
+          p.commonName.toLowerCase().includes(searchQuery) || 
+          p.botanicalName.toLowerCase().includes(searchQuery);
+
+        return matchesPathway && matchesSun && matchesMoisture && matchesSearch;
+      });
+
+      document.getElementById('match-count-badge').textContent = `${filtered.length} Matching Species`;
+
+      const grid = document.getElementById('bloom-grid');
+      grid.innerHTML = seasons.map(season => {
+        const seasonPlants = filtered.filter(p => p.bloomSeason.includes(season.id));
+
+        return `
+          <div class="bg-white border border-sky-200 rounded-2xl p-5 space-y-4 shadow-sm">
+            <div class="flex justify-between items-center border-b border-sky-100 pb-3">
+              <h3 class="font-bold text-amber-800 text-base">${season.label} Blooms</h3>
+              <span class="text-xs bg-sky-50 text-sky-900 px-2.5 py-1 rounded-full font-semibold border border-sky-200">
+                ${seasonPlants.length} species
+              </span>
+            </div>
+
+            ${seasonPlants.length === 0 ? `
+              <p class="text-xs text-slate-400 italic py-4 text-center">
+                No matching species for this bloom window under selected filters.
+              </p>
+            ` : `
+              <div class="space-y-3">
+                ${seasonPlants.map(p => {
+                  const isSaved = savedPlan.includes(p.id);
+                  return `
+                    <div class="p-4 bg-sky-50/40 rounded-xl border border-sky-200/80 space-y-2 hover:border-amber-300 transition shadow-xs">
+                      <div class="flex justify-between items-start">
+                        <div>
+                          <div class="font-bold text-slate-900 text-sm">${p.commonName}</div>
+                          <div class="text-xs text-slate-500 italic">${p.botanicalName}</div>
+                        </div>
+                        <span class="text-[10px] uppercase font-bold tracking-wider bg-amber-100 text-amber-900 border border-amber-300 px-2 py-0.5 rounded">
+                          ${p.layer}
+                        </span>
+                      </div>
+
+                      <p class="text-xs text-slate-700 leading-relaxed">${p.ecologicalValue}</p>
+
+                      ${p.hummingbirdNote ? `
+                        <div class="text-[11px] bg-red-50 border border-red-200 text-red-900 p-2 rounded-lg">
+                          🐦 <strong>Hummingbird Protein Note:</strong> ${p.hummingbirdNote}
+                        </div>
+                      ` : ''}
+
+                      ${p.cautionaryNote ? `
+                        <div class="text-[11px] bg-red-50 border border-red-200 text-red-900 p-2 rounded-lg">
+                          ${p.cautionaryNote}
+                        </div>
+                      ` : ''}
+
+                      ${p.spreaderWarning ? `
+                        <div class="text-[11px] bg-amber-50 border border-amber-200 text-amber-900 p-2 rounded-lg">
+                          ⚠️ <strong>Spreader Note:</strong> ${p.spreaderWarning}
+                        </div>
+                      ` : ''}
+
+                      <div class="flex items-center justify-between pt-1">
+                        <span class="text-[11px] text-slate-500">🦌 Deer Resistant</span>
+                        <button onclick="togglePlan('${p.id}')" class="text-xs font-bold px-3 py-1.5 rounded-lg transition ${
+                          isSaved 
+                            ? 'bg-amber-500 text-slate-950' 
+                            : 'bg-white hover:bg-slate-100 text-slate-800 border border-slate-300'
+                        }">
+                          ${isSaved ? '✓ Saved in Plan' : '+ Add to Plan'}
+                        </button>
+                      </div>
+                    </div>
+                  `;
+                }).join('')}
+              </div>
+            `}
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderPlanDrawer() {
+      const container = document.getElementById('plan-items-container');
+      if (savedPlan.length === 0) {
+        container.innerHTML = `
+          <p class="text-slate-400 text-sm text-center py-8">
+            Your plan is currently empty. Click "+ Add to Plan" on species cards to build your yard layout.
+          </p>
+        `;
+        return;
+      }
+
+      container.innerHTML = savedPlan.map(id => {
+        const p = plants.find(item => item.id === id);
+        return `
+          <div class="p-3 bg-sky-50 rounded-xl border border-sky-200 flex justify-between items-center">
+            <div>
+              <div class="font-bold text-slate-900 text-sm">${p.commonName}</div>
+              <div class="text-xs text-slate-500 italic">${p.botanicalName}</div>
+            </div>
+            <button onclick="togglePlan('${p.id}'); renderPlanDrawer();" class="text-xs text-red-600 hover:text-red-800 font-bold px-2 py-1">
+              Remove
+            </button>
+          </div>
+        `;
+      }).join('');
+    }
+
+    // Initial Setup
+    updateCounter();
+    render();
+  </script>
+</body>
+</html>

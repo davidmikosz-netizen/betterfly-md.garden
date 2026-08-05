@@ -21,49 +21,6 @@ Deer & Bunny Defense Table: Diagnostic breakdown identifying chew patterns, phys
 Water Station Setup: Guidance on Shallow Puddle Stations for bees and moving water solar bubblers for mosquito control and songbird attraction.
 
 PWA Capable: Mobile-first responsive UI ready to be saved directly to iPhone or Android home screens as an app.
-🛠️ Tech Stack & Dependencies
-
-Frontend: HTML5, Modern CSS, Vanilla JavaScript (ES6+)
-
-Styling & Design System: Tailwind CSS (CDN)
-
-Typography: Google Fonts (Inter & Playfair Display)
-
-QR Code API: QRServer API (High-res dynamic vector rendering)
-
-Analytics/Counter: CounterAPI for cross-visitor page counting
-
-🚀 Quick Start Guide
-
-Running Locally
-
-No build step or node module installations are required!
-
-Clone or download this repository:
-
-git clone https://github.com/YOUR-USERNAME/maryland-native-planner.git
-
-
-Navigate into the folder:
-
-cd maryland-native-planner
-
-
-Open index.html in any web browser to run the Planner, or tin_sign.html to customize and print yard signs.
-
-🌐 Deploying to Vercel
-
-Push your repository to GitHub.
-
-Log into Vercel with your GitHub account.
-
-Click Add New... > Project and import maryland-native-planner.
-
-Click Deploy. Vercel will host index.html instantly as your homepage.
-
-(Optional) Add your custom domain under Project Settings > Domains (e.g., betterfly.garden).
-
-See vercel_deployment_guide.md in this repository for full DNS setup instructions.
 
 💚 Ecosystem & Conservation Mission
 

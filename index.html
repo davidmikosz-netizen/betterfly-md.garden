@@ -11,6 +11,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   
+  <!-- PWA & Mobile Phone App Capabilities -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Better Fly MD">
+  <meta name="theme-color" content="#0284c7">
+  <link rel="manifest" href="data:application/manifest+json,%7B%22name%22%3A%22Better%20Fly%20Maryland%22%2C%22short_name%22%3A%22BetterFly%22%2C%22start_url%22%3A%22.%2F%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23f0f9ff%22%2C%22theme_color%22%3A%22%230284c7%22%7D">
+
   <style>
     body {
       font-family: 'Inter', sans-serif;
@@ -498,6 +505,20 @@
           </p>
         </div>
 
+        <!-- Phone App Banner -->
+        <div class="bg-gradient-to-r from-sky-50 to-blue-50 border border-sky-200 p-5 rounded-2xl flex flex-col sm:flex-row items-center justify-between gap-4 shadow-xs">
+          <div class="flex items-center gap-3 text-center sm:text-left">
+            <span class="text-3xl">📱</span>
+            <div>
+              <h3 class="font-bold text-slate-900 text-sm">Save as a Phone App</h3>
+              <p class="text-slate-600 text-xs">Add Better Fly MD directly to your iPhone or Android home screen without an app store!</p>
+            </div>
+          </div>
+          <div class="text-xs text-slate-700 font-semibold bg-white border border-sky-200 px-4 py-2.5 rounded-xl shrink-0 text-center sm:text-left shadow-xs">
+            <span><strong>iPhone (Safari):</strong> Tap Share ➔ 'Add to Home Screen'<br><strong>Android (Chrome):</strong> Tap Menu (⋮) ➔ 'Install App'</span>
+          </div>
+        </div>
+
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
           
           <!-- Support & Tipping Box -->
@@ -955,12 +976,30 @@
     let yardPlan = JSON.parse(localStorage.getItem('betterfly_yard_plan') || '[]');
     let activeTab = 'getting-started';
 
-    // Visitor Counter Setup
-    function initVisitorCounter() {
-      let visits = parseInt(localStorage.getItem('betterfly_visits') || '1248');
-      visits += 1;
+    // Global Visitor Counter Setup
+    async function initVisitorCounter() {
+      const counterEl = document.getElementById('visitor-counter-val');
+      
+      try {
+        // Increment global counter across all visitors
+        const response = await fetch('https://api.counterapi.dev/v1/betterfly_md_garden_planner/visits/up');
+        if (response.ok) {
+          const data = await response.json();
+          if (data && data.count) {
+            // Add baseline offset so counter reflects overall site activity
+            const totalVisits = data.count + 1248;
+            counterEl.textContent = totalVisits.toLocaleString();
+            return;
+          }
+        }
+      } catch (err) {
+        console.log("Global counter fallback to local storage:", err);
+      }
+
+      // Offline fallback using local storage
+      let visits = parseInt(localStorage.getItem('betterfly_visits') || '1248') + 1;
       localStorage.setItem('betterfly_visits', visits.toString());
-      document.getElementById('visitor-counter-val').textContent = visits.toLocaleString();
+      counterEl.textContent = visits.toLocaleString();
     }
 
     // Tab Switcher

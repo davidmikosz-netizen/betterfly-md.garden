@@ -1,6 +1,6 @@
-🦋 Better Fly Maryland — Native Garden Planner & Printable Sign Generator
+🦋 Better Fly Maryland — Native Garden Planner
 
-An interactive web application and printable yard sign generator designed to help Maryland homeowners convert turf grass lawns into thriving, deer-resistant native plant sanctuaries that protect the Chesapeake Bay watershed.
+An interactive web application designed to help Maryland homeowners convert turf grass lawns into thriving, deer-resistant native plant sanctuaries that protect the Chesapeake Bay watershed.
 
 🌟 Features Overview
 

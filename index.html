@@ -2,24 +2,28 @@
 <html lang="en">
 <head>
   <meta name="google-site-verification" content="82t9I02n_GnPnbuzuS34Yr6QMG5H4lMnlFv60UQNiXY" />
-<!-- Open Graph / Facebook / iMessage Meta Tags -->
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://betterfly-md.garden/">
-    <meta property="og:title" content="Better Fly Maryland — Native Garden Planner">
-    <meta property="og:description" content="Design your Maryland native pollinator garden with continuous bloom succession, deer-defense strategies, and local nursery guides tailored for the Chesapeake watershed.">
-    <meta property="og:image" content="https://betterfly-md.garden/og-preview.png">
+  
+  <!-- Open Graph / Facebook / iMessage Meta Tags -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://betterfly.garden/">
+  <meta property="og:title" content="Better Fly Maryland — Native Garden Planner">
+  <meta property="og:description" content="Design your Maryland native pollinator garden with continuous bloom succession, deer-defense strategies, and local nursery guides tailored for the Chesapeake watershed.">
+  <meta property="og:image" content="https://betterfly.garden/og-preview.png">
 
-    <!-- Twitter / X Meta Tags -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:url" content="https://betterfly-md.garden/">
-    <meta name="twitter:title" content="Better Fly Maryland — Native Garden Planner">
-    <meta name="twitter:description" content="Design your Maryland native pollinator garden with continuous bloom succession, deer-defense strategies, and local nursery guides tailored for the Chesapeake watershed.">
-    <meta name="twitter:image" content="https://betterfly-md.garden/og-preview.png">
+  <!-- Twitter / X Meta Tags -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://betterfly.garden/">
+  <meta name="twitter:title" content="Better Fly Maryland — Native Garden Planner">
+  <meta name="twitter:description" content="Design your Maryland native pollinator garden with continuous bloom succession, deer-defense strategies, and local nursery guides tailored for the Chesapeake watershed.">
+  <meta name="twitter:image" content="https://betterfly.garden/og-preview.png">
+
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Better Fly Maryland - Native Garden Planner</title>
+  
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
+  
   <!-- Inter Font -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -84,7 +88,7 @@
     <div class="bg-white/95 border border-sky-200 rounded-3xl p-6 md:p-8 shadow-md">
       <div class="flex flex-col md:flex-row items-center justify-between gap-6">
         
-        <!-- Whimsical MD Flag Butterfly SVG Graphic & Title -->
+        <!-- MD Flag Butterfly SVG Graphic & Title -->
         <div class="flex flex-col sm:flex-row items-center gap-5 text-center sm:text-left">
           <div class="relative shrink-0">
             <svg class="w-28 h-28 transform hover:scale-105 transition-transform duration-300 drop-shadow-md" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -158,20 +162,17 @@
     </div>
   </header>
 
-  <!-- MAIN NAVIGATION TABS -->
+  <!-- MAIN NAVIGATION TABS (Reordered: MD Native Nurseries moved to end) -->
   <nav class="max-w-7xl mx-auto px-4 mb-6">
     <div class="flex overflow-x-auto gap-2 bg-white/80 p-2 rounded-2xl border border-sky-200 shadow-sm scrollbar-none">
       <button onclick="switchTab('why-natives')" id="nav-why-natives" class="nav-tab px-4 py-2.5 rounded-xl font-bold text-sm whitespace-nowrap transition-all bg-sky-600 text-white shadow-sm flex items-center gap-2">
         <span>🌊</span> Why Native Plants?
       </button>
       <button onclick="switchTab('getting-started')" id="nav-getting-started" class="nav-tab px-4 py-2.5 rounded-xl font-semibold text-sm text-slate-600 hover:bg-sky-100 whitespace-nowrap transition-all flex items-center gap-2">
-        <span>🚀</span> Getting Started
+        <span>🚀</span> Quick Start
       </button>
       <button onclick="switchTab('explorer')" id="nav-explorer" class="nav-tab px-4 py-2.5 rounded-xl font-semibold text-sm text-slate-600 hover:bg-sky-100 whitespace-nowrap transition-all flex items-center gap-2">
         <span>🌿</span> Pathways Explorer &amp; Bloom Calendar
-      </button>
-      <button onclick="switchTab('nurseries')" id="nav-nurseries" class="nav-tab px-4 py-2.5 rounded-xl font-semibold text-sm text-slate-600 hover:bg-sky-100 whitespace-nowrap transition-all flex items-center gap-2">
-        <span>🏡</span> MD Native Nurseries
       </button>
       <button onclick="switchTab('defense')" id="nav-defense" class="nav-tab px-4 py-2.5 rounded-xl font-semibold text-sm text-slate-600 hover:bg-sky-100 whitespace-nowrap transition-all flex items-center gap-2">
         <span>🦌</span> Deer &amp; Bunny Defense
@@ -181,6 +182,9 @@
       </button>
       <button onclick="switchTab('about')" id="nav-about" class="nav-tab px-4 py-2.5 rounded-xl font-semibold text-sm text-slate-600 hover:bg-sky-100 whitespace-nowrap transition-all flex items-center gap-2">
         <span>ℹ️</span> About &amp; Support
+      </button>
+      <button onclick="switchTab('nurseries')" id="nav-nurseries" class="nav-tab px-4 py-2.5 rounded-xl font-semibold text-sm text-slate-600 hover:bg-sky-100 whitespace-nowrap transition-all flex items-center gap-2">
+        <span>🏡</span> MD Native Nurseries
       </button>
     </div>
   </nav>
@@ -248,13 +252,13 @@
       </div>
     </section>
 
-    <!-- TAB 2: GETTING STARTED -->
+    <!-- TAB 2: QUICK START -->
     <section id="tab-getting-started" class="tab-content hidden space-y-6">
       <div class="bg-white border border-sky-200 p-6 md:p-8 rounded-3xl space-y-6 shadow-sm">
         
         <div class="border-b border-sky-100 pb-4">
           <h2 class="text-2xl font-bold text-slate-900 flex items-center gap-2">
-            <span>🚀</span> Start Small: Your Easy Lawn Conversion Guide
+            <span>🚀</span> Quick Start: Your Easy Lawn Conversion Guide
           </h2>
           <p class="text-slate-600 text-sm mt-1">
             You don't need to dig up your whole yard overnight! Converting a small 4x4 pocket garden or a strip along your driveway creates an immediate pollinator sanctuary with minimal effort. Late summer through early fall is the ideal time to sheet mulch so cardboard and mulch smother grass and build soil over winter.
@@ -355,6 +359,16 @@
     <!-- TAB 3: PATHWAYS EXPLORER & BLOOM CALENDAR -->
     <section id="tab-explorer" class="tab-content hidden space-y-6">
       
+      <!-- New Introductory Banner (Change 4) -->
+      <div class="bg-gradient-to-r from-sky-50 via-emerald-50 to-blue-50 border border-sky-200 p-6 rounded-3xl shadow-sm space-y-2">
+        <h2 class="text-lg sm:text-xl font-extrabold text-slate-900 flex items-center gap-2">
+          <span>🌿</span> Pathways Explorer &amp; Bloom Succession
+        </h2>
+        <p class="text-slate-700 text-xs sm:text-sm font-medium leading-relaxed max-w-4xl">
+          The selections below allow you to optimize your garden for pollinators, hummingbirds, butterflies, or all of the above. Use the bloom succession matrix to ensure continuous flowering from early spring through late fall, providing uninterrupted nectar and pollen corridors across the entire growing season.
+        </p>
+      </div>
+
       <div class="bg-white border border-sky-200 p-5 rounded-3xl shadow-sm space-y-3">
         <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
           <h3 class="text-sm font-bold text-slate-900 flex items-center gap-2">
@@ -446,80 +460,7 @@
       </div>
     </section>
 
-    <!-- TAB 4: MARYLAND NATIVE NURSERIES FINDER -->
-    <section id="tab-nurseries" class="tab-content hidden space-y-6">
-      <div class="bg-white border border-sky-200 p-6 md:p-8 rounded-3xl space-y-6 shadow-sm">
-        <div class="border-b border-sky-100 pb-4">
-          <h2 class="text-2xl font-bold text-slate-900 flex items-center gap-2">
-            <span>🏡</span> Where to Buy Maryland Native Plants
-          </h2>
-          <p class="text-slate-600 text-sm mt-1">
-            Support local Maryland native plant nurseries, garden centers, and specialty growers to source healthy, chemical-free straight species:
-          </p>
-        </div>
-
-        <!-- Disclaimer Banner -->
-        <div class="bg-amber-50 border border-amber-200 p-4 rounded-2xl flex items-start gap-2.5 text-xs text-amber-950 font-medium">
-          <span class="text-lg shrink-0">⚠️</span>
-          <p>
-            <strong>Disclaimer:</strong> The nurseries and garden centers listed below are provided solely as helpful, illustrative suggestions for local sourcing and do not constitute official endorsements or formal commercial partnerships.
-          </p>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
-          <!-- Featured Local Nursery: American Plant -->
-          <div class="bg-sky-50 border border-sky-300 p-4 rounded-2xl space-y-2 shadow-xs">
-            <div class="flex items-center justify-between">
-              <h3 class="font-bold text-slate-900 text-sm">American Plant</h3>
-              <span class="bg-sky-200 text-sky-900 font-bold px-2 py-0.5 rounded text-[10px]">Bethesda, MD</span>
-            </div>
-            <p class="text-slate-600">Established local garden center offering a extensive selection of native perennials, shrubs, organic soil amendments, and expert plant care advice.</p>
-          </div>
-
-          <div class="bg-sky-50 border border-sky-200 p-4 rounded-2xl space-y-2">
-            <div class="flex items-center justify-between">
-              <h3 class="font-bold text-slate-900 text-sm">Firefly Farm &amp; Mercantile</h3>
-              <span class="bg-sky-200 text-sky-900 font-semibold px-2 py-0.5 rounded text-[10px]">Mail-Order &amp; Regional</span>
-            </div>
-            <p class="text-slate-600">Specialty supplier for native seeds and rare eco-type Mid-Atlantic perennials.</p>
-          </div>
-
-          <div class="bg-sky-50 border border-sky-200 p-4 rounded-2xl space-y-2">
-            <div class="flex items-center justify-between">
-              <h3 class="font-bold text-slate-900 text-sm">Herring Run Nursery (Blue Water Baltimore)</h3>
-              <span class="bg-sky-200 text-sky-900 font-semibold px-2 py-0.5 rounded text-[10px]">Baltimore City / County</span>
-            </div>
-            <p class="text-slate-600">Non-profit native plant nursery located in Baltimore specializing in Chesapeake Bay watershed species.</p>
-          </div>
-
-          <div class="bg-sky-50 border border-sky-200 p-4 rounded-2xl space-y-2">
-            <div class="flex items-center justify-between">
-              <h3 class="font-bold text-slate-900 text-sm">Earth Sangha Native Plant Nursery</h3>
-              <span class="bg-sky-200 text-sky-900 font-semibold px-2 py-0.5 rounded text-[10px]">Regional Washington Metro</span>
-            </div>
-            <p class="text-slate-600">Volunteer-powered non-profit propagating strictly local wild-collected Mid-Atlantic native ecotypes.</p>
-          </div>
-
-          <div class="bg-sky-50 border border-sky-200 p-4 rounded-2xl space-y-2">
-            <div class="flex items-center justify-between">
-              <h3 class="font-bold text-slate-900 text-sm">Chesapeake Natives Inc.</h3>
-              <span class="bg-sky-200 text-sky-900 font-semibold px-2 py-0.5 rounded text-[10px]">Prince George's County</span>
-            </div>
-            <p class="text-slate-600">Dedicated non-profit nursery in Upper Marlboro propagating local native plants for the Coastal Plain and Piedmont.</p>
-          </div>
-
-          <div class="bg-sky-50 border border-sky-200 p-4 rounded-2xl space-y-2">
-            <div class="flex items-center justify-between">
-              <h3 class="font-bold text-slate-900 text-sm">Lauren's Garden Service &amp; Native Nursery</h3>
-              <span class="bg-sky-200 text-sky-900 font-semibold px-2 py-0.5 rounded text-[10px]">Howard County</span>
-            </div>
-            <p class="text-slate-600">Retail native plant nursery in Glenwood offering native perennials, shrubs, and ecological landscape design.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TAB 5: DEER & BUNNY DEFENSE -->
+    <!-- TAB 4: DEER & BUNNY DEFENSE -->
     <section id="tab-defense" class="tab-content hidden space-y-6">
       <div class="bg-white border border-sky-200 p-6 md:p-8 rounded-3xl space-y-6 shadow-sm">
         
@@ -590,7 +531,7 @@
       </div>
     </section>
 
-    <!-- TAB 6: WATER STATION -->
+    <!-- TAB 5: WATER STATION -->
     <section id="tab-water-station" class="tab-content hidden space-y-6">
       <div class="bg-white border border-sky-200 p-6 md:p-8 rounded-3xl space-y-6 shadow-sm">
         
@@ -626,7 +567,7 @@
       </div>
     </section>
 
-    <!-- TAB 7: ABOUT & SUPPORT -->
+    <!-- TAB 6: ABOUT & SUPPORT -->
     <section id="tab-about" class="tab-content hidden space-y-6">
       <div class="bg-white border border-sky-200 p-6 md:p-8 rounded-3xl space-y-6 shadow-sm">
         
@@ -697,6 +638,79 @@
       </div>
     </section>
 
+    <!-- TAB 7: MARYLAND NATIVE NURSERIES FINDER (Moved to end of bar) -->
+    <section id="tab-nurseries" class="tab-content hidden space-y-6">
+      <div class="bg-white border border-sky-200 p-6 md:p-8 rounded-3xl space-y-6 shadow-sm">
+        <div class="border-b border-sky-100 pb-4">
+          <h2 class="text-2xl font-bold text-slate-900 flex items-center gap-2">
+            <span>🏡</span> Where to Buy Maryland Native Plants
+          </h2>
+          <p class="text-slate-600 text-sm mt-1">
+            Support local Maryland native plant nurseries, garden centers, and specialty growers to source healthy, chemical-free straight species:
+          </p>
+        </div>
+
+        <!-- Disclaimer Banner -->
+        <div class="bg-amber-50 border border-amber-200 p-4 rounded-2xl flex items-start gap-2.5 text-xs text-amber-950 font-medium">
+          <span class="text-lg shrink-0">⚠️</span>
+          <p>
+            <strong>Disclaimer:</strong> The nurseries and garden centers listed below are provided solely as helpful, illustrative suggestions for local sourcing and do not constitute official endorsements or formal commercial partnerships.
+          </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs">
+          <!-- Featured Local Nursery: American Plant -->
+          <div class="bg-sky-50 border border-sky-300 p-4 rounded-2xl space-y-2 shadow-xs">
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-slate-900 text-sm">American Plant</h3>
+              <span class="bg-sky-200 text-sky-900 font-bold px-2 py-0.5 rounded text-[10px]">Bethesda, MD</span>
+            </div>
+            <p class="text-slate-600">Established local garden center offering an extensive selection of native perennials, shrubs, organic soil amendments, and expert plant care advice.</p>
+          </div>
+
+          <div class="bg-sky-50 border border-sky-200 p-4 rounded-2xl space-y-2">
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-slate-900 text-sm">Firefly Farm &amp; Mercantile</h3>
+              <span class="bg-sky-200 text-sky-900 font-semibold px-2 py-0.5 rounded text-[10px]">Mail-Order &amp; Regional</span>
+            </div>
+            <p class="text-slate-600">Specialty supplier for native seeds and rare eco-type Mid-Atlantic perennials.</p>
+          </div>
+
+          <div class="bg-sky-50 border border-sky-200 p-4 rounded-2xl space-y-2">
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-slate-900 text-sm">Herring Run Nursery (Blue Water Baltimore)</h3>
+              <span class="bg-sky-200 text-sky-900 font-semibold px-2 py-0.5 rounded text-[10px]">Baltimore City / County</span>
+            </div>
+            <p class="text-slate-600">Non-profit native plant nursery located in Baltimore specializing in Chesapeake Bay watershed species.</p>
+          </div>
+
+          <div class="bg-sky-50 border border-sky-200 p-4 rounded-2xl space-y-2">
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-slate-900 text-sm">Earth Sangha Native Plant Nursery</h3>
+              <span class="bg-sky-200 text-sky-900 font-semibold px-2 py-0.5 rounded text-[10px]">Regional Washington Metro</span>
+            </div>
+            <p class="text-slate-600">Volunteer-powered non-profit propagating strictly local wild-collected Mid-Atlantic native ecotypes.</p>
+          </div>
+
+          <div class="bg-sky-50 border border-sky-200 p-4 rounded-2xl space-y-2">
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-slate-900 text-sm">Chesapeake Natives Inc.</h3>
+              <span class="bg-sky-200 text-sky-900 font-semibold px-2 py-0.5 rounded text-[10px]">Prince George's County</span>
+            </div>
+            <p class="text-slate-600">Dedicated non-profit nursery in Upper Marlboro propagating local native plants for the Coastal Plain and Piedmont.</p>
+          </div>
+
+          <div class="bg-sky-50 border border-sky-200 p-4 rounded-2xl space-y-2">
+            <div class="flex items-center justify-between">
+              <h3 class="font-bold text-slate-900 text-sm">Lauren's Garden Service &amp; Native Nursery</h3>
+              <span class="bg-sky-200 text-sky-900 font-semibold px-2 py-0.5 rounded text-[10px]">Howard County</span>
+            </div>
+            <p class="text-slate-600">Retail native plant nursery in Glenwood offering native perennials, shrubs, and ecological landscape design.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
   </main>
 
   <!-- MY YARD PLAN SIDE DRAWER OVERLAY -->
@@ -705,18 +719,22 @@
   <div id="plan-drawer" class="fixed inset-y-0 right-0 w-full max-w-md bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 flex flex-col">
     <div id="print-summary-header" class="hidden p-6 border-b border-slate-200">
       <h1 class="text-xl font-bold text-slate-900">Better Fly Maryland — Native Garden Shopping List</h1>
-      <p class="text-xs text-slate-500">Chesapeake Watershed Habitat &amp; Native Species Plan • betterfly-md.garden</p>
+      <p class="text-xs text-slate-500">Chesapeake Watershed Habitat &amp; Native Species Plan • betterfly.garden</p>
     </div>
 
-    <div class="p-6 border-b border-slate-100 flex items-center justify-between bg-sky-50 no-print">
-      <div class="flex items-center gap-2">
-        <span class="text-2xl">📋</span>
+    <div class="p-6 border-b border-slate-100 flex items-start justify-between bg-sky-50 no-print">
+      <div class="flex items-start gap-3">
+        <span class="text-2xl mt-0.5">📋</span>
         <div>
-          <h3 class="font-bold text-slate-900 text-lg">My Yard Plan</h3>
-          <p class="text-slate-500 text-xs">Your customized MD native plant shopping list</p>
+          <h3 class="font-bold text-slate-900 text-lg leading-tight">My Yard Plan</h3>
+          <p class="text-sky-900 text-xs font-semibold mt-0.5">Custom Native Plant Shopping List</p>
+          <!-- Explanatory Text Added (Change 5) -->
+          <p class="text-slate-600 text-xs mt-1 leading-relaxed">
+            This allows you to develop, save, and print a custom shopping list of the native plants you chose for your garden.
+          </p>
         </div>
       </div>
-      <button onclick="toggleYardPlanDrawer()" class="text-slate-400 hover:text-slate-600 text-2xl font-bold p-1">✕</button>
+      <button onclick="toggleYardPlanDrawer()" class="text-slate-400 hover:text-slate-600 text-2xl font-bold p-1 shrink-0">✕</button>
     </div>
 
     <div class="flex-1 overflow-y-auto p-6 space-y-4" id="plan-drawer-content">
@@ -1146,15 +1164,23 @@
     let activeTab = 'why-natives';
     let selectedSeason = 'All';
 
+    // Accurate Web Counter with Single-Session Protection (Change 1)
     async function initVisitorCounter() {
       const counterEl = document.getElementById('visitor-counter-val');
       const BASE_OFFSET = 1248;
-      
+      const sessionCounted = sessionStorage.getItem('betterfly_counted');
+
       try {
-        const response = await fetch('https://api.counterapi.dev/v1/betterfly_md_garden_planner/visits/up');
+        // If already counted in this browser session, just fetch the total; otherwise increment
+        const endpoint = sessionCounted 
+          ? 'https://api.counterapi.dev/v1/betterfly_garden_planner_visits/visits' 
+          : 'https://api.counterapi.dev/v1/betterfly_garden_planner_visits/visits/up';
+
+        const response = await fetch(endpoint);
         if (response.ok) {
           const data = await response.json();
-          if (data && data.count) {
+          if (data && typeof data.count === 'number') {
+            sessionStorage.setItem('betterfly_counted', 'true');
             const totalVisits = data.count + BASE_OFFSET;
             counterEl.textContent = totalVisits.toLocaleString();
             return;
@@ -1164,8 +1190,13 @@
         console.log("Global API counter fallback:", err);
       }
 
-      let visits = parseInt(localStorage.getItem('betterfly_visits') || '0') + 1;
-      localStorage.setItem('betterfly_visits', visits.toString());
+      // Local storage fallback if API is unreachable
+      let visits = parseInt(localStorage.getItem('betterfly_visits') || '0');
+      if (!sessionCounted) {
+        visits += 1;
+        localStorage.setItem('betterfly_visits', visits.toString());
+        sessionStorage.setItem('betterfly_counted', 'true');
+      }
       counterEl.textContent = (visits + BASE_OFFSET).toLocaleString();
     }
 
@@ -1317,7 +1348,7 @@
           <div class="text-center py-12 space-y-3">
             <span class="text-4xl">🌱</span>
             <p class="text-slate-500 font-medium text-sm">Your Yard Plan is empty!</p>
-            <p class="text-slate-400 text-xs max-w-xs mx-auto">Browse the Pathways Explorer tab or Getting Started guide to add native species to your garden plan.</p>
+            <p class="text-slate-400 text-xs max-w-xs mx-auto">Browse the Pathways Explorer tab or Quick Start guide to add native species to your customized shopping list.</p>
           </div>
         `;
         return;

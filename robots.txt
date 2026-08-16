@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://betterfly-md.garden/sitemap.xml
+Sitemap: https://betterfly.garden/sitemap.xml
